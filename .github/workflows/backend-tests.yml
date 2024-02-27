@@ -42,7 +42,16 @@ jobs:
           go-version: 1.22
           check-latest: true
           cache: true
+
+      # Add an action to run your tests with the CodeComet action:
       - name: Run all tests
-        run: go test -v ./... | tee test.log; exit ${PIPESTATUS[0]}
+        uses: codecomet-io/setup-and-run@v1.3
+        env:
+          # You can save the CODECOMET_API_KEY in your repo's secrets:
+          CODECOMET_API_KEY: ${{ secrets.CODECOMET_API_KEY }}
+        with:
+          test_command: go test -v ./... | tee test.log; exit ${PIPESTATUS[0]}
+          test_suite_name: Memos Backend Tests
+
       - name: Pretty print tests running time
         run: grep --color=never -e '--- PASS:' -e '--- FAIL:' test.log | sed 's/[:()]//g' | awk '{print $2,$3,$4}' | sort -t' ' -nk3 -r | awk '{sum += $3; print $1,$2,$3,sum"s"}'
