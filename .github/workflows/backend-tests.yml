@@ -50,6 +50,7 @@ jobs:
           # You can save the CODECOMET_API_KEY in your repo's secrets:
           CODECOMET_API_KEY: ${{ secrets.CODECOMET_API_KEY }}
         with:
+          # Not sure if 'tee' works
           test_command: go test -v ./... | tee test.log; exit ${PIPESTATUS[0]}
           test_suite_name: Memos Backend Tests
 
