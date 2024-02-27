@@ -32,7 +32,7 @@ func TestStorageStore(t *testing.T) {
 	err = ts.DeleteStorage(ctx, &store.DeleteStorage{
 		ID: storage.ID,
 	})
-	require.NoError(t, err)
+	require.Error(t, err)
 	storageList, err = ts.ListStorages(ctx, &store.FindStorage{})
 	require.NoError(t, err)
 	require.Equal(t, 0, len(storageList))
