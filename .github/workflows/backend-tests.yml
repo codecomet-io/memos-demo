@@ -45,7 +45,7 @@ jobs:
 
       # Add an action to run your tests with the CodeComet action:
       - name: Run all tests
-        uses: codecomet-io/setup-and-run@v1.3
+        uses: codecomet-io/setup-and-run@v1.4
         env:
           # You can save the CODECOMET_API_KEY in your repo's secrets:
           CODECOMET_API_KEY: ${{ secrets.CODECOMET_API_KEY }}
