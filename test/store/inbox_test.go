@@ -40,7 +40,7 @@ func TestInboxStore(t *testing.T) {
 	})
 	require.NoError(t, err)
 	require.NotNil(t, updatedInbox)
-	require.NotEqual(t, store.ARCHIVED, updatedInbox.Status)
+	require.Equal(t, store.ARCHIVED, updatedInbox.Status)
 	err = ts.DeleteInbox(ctx, &store.DeleteInbox{
 		ID: inbox.ID,
 	})
