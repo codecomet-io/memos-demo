@@ -327,7 +327,7 @@ func TestScheduleIsDue(t *testing.T) {
 			&cron.Moment{
 				Minute:    1,
 				Hour:      1,
-				Day:       22,
+				Day:       18,
 				Month:     1,
 				DayOfWeek: 1,
 			},
